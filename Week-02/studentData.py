@@ -17,10 +17,15 @@ import os
 studentData = {} 
 def add():
     os.system('cls')
-    name = input("Enter the Students Name\n")
-    age= input("Enter the Students Age\n")
-    grade = input("Enter the Students Grade\n") 
-    studentData[name] = [age , grade]
+    print ("Enter 'exit' in place of the name to stop adding.")
+    while(True):
+        print("--------------------------")
+        name = input("Enter the Students Name\n")
+        if (name.lower() == "exit"):
+            return
+        age= input("Enter the Students Age\n")
+        grade = input("Enter the Students Grade\n") 
+        studentData[name] = [age , grade]
 """ print(studentData) """
 def view():
     os.system('cls')
@@ -30,6 +35,7 @@ def view():
     name = input("Enter the name: ").lower()
     for x in studentData:
         if x.lower() == name:
+            print("--------------------------")
             print(f"Name: {x} \nAge: {studentData[x][0]} \nGrade: {studentData[x][1]}")
             return 
     print("Not Found!")
@@ -41,6 +47,7 @@ def List():
         return
     i = 1
     for x in studentData:
+        print("--------------------------")
         print (f"Student {i}\nName: {x} \nAge: {studentData[x][0]} \nGrade: {studentData[x][1]}\n\n")
         i += 1
 
