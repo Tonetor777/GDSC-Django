@@ -10,6 +10,4 @@ You are not allowed to store numbers or strings in a variable
 You are not allowed to import any module
  """
 for num in range(100):
-    if num == 99:
-        print(str(num))
-    else: print(str(num).zfill(2), end = ", ")
+    print(str(num).zfill(2), end = ", " if num < 99 else "\n")
