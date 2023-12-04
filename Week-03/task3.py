@@ -3,6 +3,4 @@ Develop a program that checks if a user-inputted word is a palindrome. A palindr
 
 text = input("Enter the word: ")
 revtext = "".join(reversed(text))
-if (text == revtext):
-    print ("The word "+ text +" is Palindrome")
-else: print ("The word "+ text +" is Not Palindrome")
+print ("The word "+ text , "is Palindrome" if text == revtext else "is Not Palindrome" )
