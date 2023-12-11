@@ -23,8 +23,7 @@ Combine the functions to achieve the main objective.
 Feel free to seek clarification on any part of the task. The primary goal is to enhance your understanding of file handling, time-based operations, and module usage in Python.
 
 """
-import os
-import datetime , shutil
+import os, datetime , shutil
 def listFiles():
     files = []
     for (path , dir , file) in os.walk(os.getcwd()):
@@ -44,7 +43,7 @@ def Identify_files():
     return modified_files
 
 def update_files ():
-    for file in listFiles():
+    for file in Identify_files():
         with open(file , 'a') as update:
             update.write(f'\nCurrent Time Stamp:{datetime.datetime.now()}')
 
@@ -56,9 +55,15 @@ def create_folder():
     except Exception as e:
         return f'Error: ' , e
 
-def move_files():
+def move_modified_files():
+    update_files()
+    create_folder()
     destination = os.getcwd() + '\last_24hours'
     for file in Identify_files():
         shutil.move(file , destination)
+
+
+#TEST CODE
+move_modified_files()
 
 
