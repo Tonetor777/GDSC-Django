@@ -1,6 +1,10 @@
-class Teacher:
-    def __init__(self, name, subject):
+class User:
+    def __init__(self, name):
         self.name = name
+
+class Teacher(User):
+    def __init__(self, name, subject):
+        User.__init__(self , name)
         self.subject = subject
     def __repr__(self):
         return f"{self.name}"
@@ -14,17 +18,16 @@ class Course:
     def __repr__(self):
         return f"Course Name: {self.course_name}, Course Code: {self.course_code}, Teacher: {self.teacher}"
         
-class Student:
-    Student_list = []
+class Student(User):
     def __init__(self, name, age, grade):
-        self.name = name
+        User.__init__(self, name)
         self.age = age
         self.grade = grade
         self.course = []
-        Student_list.append()
         
     def display(self):
         print (f"Student Name: {self.name}, Student Grade: {self.grade}, Student Age: {self.age},Courses: {self.course} ")
+
 eleni = Teacher ("Eleni" , "FOP")
 abdi =   Teacher ("Abdi" , "OOP")
 fop= Course ("FOP" , "SE2109" , eleni)
